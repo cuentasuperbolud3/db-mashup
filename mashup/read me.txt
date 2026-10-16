@@ -1,0 +1,13 @@
+tu-proyecto-mashup/
+├── melty.json
+├── scripts/
+│   └── dbz_abilities.lua
+├── assets/
+│   ├── models/
+│   │   ├── kamehameha.yft
+│   │   └── kamehameha.ytyp
+│   ├── textures/
+│   │   └── ki_blasts.ytd
+│   └── audio/
+│       └── power_up.awc
+└── README.md

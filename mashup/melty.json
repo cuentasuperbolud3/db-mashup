@@ -2,70 +2,56 @@
   "recipe": {
     "name": "Dragon Ball in Los Santos",
     "version": "1.2.0",
-    "author": "TuNombre",
-    "description": "Mashup de combate Dragon Ball en GTA V Enhanced: vuelo libre, carga de Ki, Super Saiyan, Kamehameha, ráfagas de Ki, Instant Transmission y spawn de enemigos. Incluye partida al 100% y salto de tutorial.",
+    "description": "Configuración para un mashup de combate Dragon Ball en GTA V Enhanced: vuelo, carga de Ki, Super Saiyan, Kamehameha, ráfagas de Ki, Instant Transmission y combate. Dragon Ball: Sparking! Zero se usa como fuente local de recursos en solo lectura.",
     "host": {
       "game": "gta-v-enhanced",
-      "version": "1.0",
       "platform": "pc"
     },
     "companion": {
       "game": "custom-dragon-ball-sparking-zero",
-      "version": "1.0",
-      "platform": "pc"
+      "access": "read_only",
+      "root": "{game:custom-dragon-ball-sparking-zero}"
     },
     "assets": {
       "scripts": [
         "src/dbz_abilities.lua"
       ],
-      "models": [
-        "assets/models/kamehameha.yft",
-        "assets/models/kamehameha.ytyp"
-      ],
-      "textures": [
-        "assets/textures/ki_blasts.ytd"
-      ],
-      "audio": [
-        "assets/audio/power_up.awc"
-      ],
-      "saves": [
-        "assets/saves/SGTA50000"
-      ]
-    },
-    "startup": {
-      "mode": "story",
-      "skip_tutorial": true,
-      "skip_intro": true,
-      "skip_landing_page": true,
-      "skip_legal_screens": true,
-      "load_savegame": true,
-      "savegame": {
-        "enabled": true,
-        "file": "assets/saves/SGTA50000",
-        "completion": 100,
-        "slot": 0,
-        "label": "GTA V 100% Story — skip prologue/tutorial",
-        "backup_existing": true,
-        "replace_slot": true,
-        "install": {
-          "enhanced": "%USERPROFILE%/Documents/Rockstar Games/GTA V Enhanced/Profiles/{PROFILE}/SGTA50000",
-          "legacy": "%USERPROFILE%/Documents/Rockstar Games/GTA V/Profiles/{PROFILE}/SGTA50000"
+      "source_game": "custom-dragon-ball-sparking-zero",
+      "source_root": "{game:custom-dragon-ball-sparking-zero}",
+      "access": "read_only",
+      "resource_types": {
+        "models": {
+          "source": "companion_game",
+          "use": "character_models",
+          "conversion": "required_for_gta_v_enhanced"
         },
-        "profile_hint": "Copia el archivo de save al perfil activo (carpeta hex de 8 caracteres). No sustituyas SGTA50000.bak; Melty debe crear backup antes de copiar."
-      },
-      "instructions": [
-        "Al lanzar el mashup, instalar assets/saves/SGTA50000 en el perfil de GTA V Enhanced.",
-        "Cargar el slot 0 (primera partida) desde Story Mode. Es una save al 100% de historia, mapas, habilidades y propiedades.",
-        "Saltar el prólogo (tutorial de Franklin/Lamar, Michael y Trevor) usando esta save; no iniciar partida nueva.",
-        "Si el juego pide migrar saves de Legacy a Enhanced, aceptar y después copiar de nuevo SGTA50000 al perfil Enhanced.",
-        "Tras el primer load, el combate Dragon Ball (vuelo, Ki, SSJ) está disponible de inmediato en Los Santos libre."
-      ]
+        "animations": {
+          "source": "companion_game",
+          "use": "combat_and_ability_animations",
+          "conversion": "required_for_gta_v_enhanced"
+        },
+        "sounds": {
+          "source": "companion_game",
+          "use": "ki_charge_transformation_and_ability_audio",
+          "conversion": "required_for_gta_v_enhanced"
+        },
+        "vfx": {
+          "source": "companion_game",
+          "use": "ki_aura_blasts_and_ability_effects",
+          "conversion": "required_for_gta_v_enhanced"
+        }
+      }
+    },
+    "runtime": {
+      "status": "requires_adapter",
+      "script_api": "FiveM/Cfx Lua natives",
+      "note": "El script Lua actual usa APIs de FiveM; Script Hook V y Ultimate ASI Loader no lo ejecutan directamente. Se necesita un adaptador compatible antes de poder cargar estos recursos en GTA V Enhanced."
     },
     "mappings": {
       "flight": {
         "free_flight": {
-          "source": "dbz_sparking_zero",
-          "target": "gta_v_enhanced",
+          "source": "custom-dragon-ball-sparking-zero",
+          "target": "gta-v-enhanced",
           "input_binding": "KEY_X",
           "ascend": "SPACE",
           "descend": "LCTRL",
@@ -75,8 +61,8 @@
       },
       "ki": {
         "charge": {
-          "source": "dbz_sparking_zero",
-          "target": "gta_v_enhanced",
+          "source": "custom-dragon-ball-sparking-zero",
+          "target": "gta-v-enhanced",
           "input_binding": "KEY_R",
           "max": 100,
           "charge_per_second": 28,
@@ -85,23 +71,23 @@
       },
       "abilities": {
         "kamehameha": {
-          "source": "dbz_sparking_zero",
-          "target": "gta_v_enhanced",
+          "source": "custom-dragon-ball-sparking-zero",
+          "target": "gta-v-enhanced",
           "input_binding": "KEY_E",
           "cooldown": 8,
           "ki_cost": 40
         },
         "instant_transmission": {
-          "source": "dbz_sparking_zero",
-          "target": "gta_v_enhanced",
+          "source": "custom-dragon-ball-sparking-zero",
+          "target": "gta-v-enhanced",
           "input_binding": "KEY_Q",
           "cooldown": 6,
           "ki_cost": 18,
           "behavior": "teleport_behind_nearest_hostile"
         },
         "ki_blast": {
-          "source": "dbz_sparking_zero",
-          "target": "gta_v_enhanced",
+          "source": "custom-dragon-ball-sparking-zero",
+          "target": "gta-v-enhanced",
           "input_binding": "MOUSE_RIGHT",
           "cooldown": 1.2,
           "ki_cost_per_shot": 6,
@@ -110,8 +96,8 @@
       },
       "transformations": {
         "super_saiyan": {
-          "source": "dbz_sparking_zero",
-          "target": "gta_v_enhanced",
+          "source": "custom-dragon-ball-sparking-zero",
+          "target": "gta-v-enhanced",
           "input_binding": "KEY_F",
           "ki_cost": 35,
           "drain_per_second": 4,
@@ -122,8 +108,8 @@
       },
       "combat": {
         "spawn_hostiles": {
-          "source": "dbz_sparking_zero",
-          "target": "gta_v_enhanced",
+          "source": "custom-dragon-ball-sparking-zero",
+          "target": "gta-v-enhanced",
           "input_binding": "KEY_G",
           "cooldown": 10,
           "count": 3,
@@ -131,13 +117,10 @@
         }
       }
     },
-    "dependencies": [
-      "script-hook-v",
-      "ultimate-asi-loader"
-    ],
     "compatibility": {
-      "min_melty_version": "0.9.0",
-      "tested_versions": ["1.0.0", "1.0.1", "1.1.0", "1.2.0"]
+      "host": "gta-v-enhanced",
+      "companion": "custom-dragon-ball-sparking-zero",
+      "companion_access": "read_only"
     }
   }
 }

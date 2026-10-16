@@ -1,13 +1,16 @@
-tu-proyecto-mashup/
-├── melty.json
-├── scripts/
-│   └── dbz_abilities.lua
-├── assets/
-│   ├── models/
-│   │   ├── kamehameha.yft
-│   │   └── kamehameha.ytyp
-│   ├── textures/
-│   │   └── ki_blasts.ytd
-│   └── audio/
-│       └── power_up.awc
-└── README.md
+Dragon Ball in Los Santos - GTA V Legacy
+
+Host: GTA V Legacy (gta-v), executable GTA5.exe, verified game version 1.0.3889.0.
+Required companion: Dragon Ball: Sparking! Zero (custom-dragon-ball-sparking-zero).
+Companion access: local installation, read-only. Its files are not included in this project.
+
+Workspace paths:
+- melty.json: mashup recipe and game/resource routing.
+- src/dbz_abilities.lua: existing combat prototype.
+- 0e9717-DBZ.webp: project image.
+
+The recipe describes models, animations, sounds and VFX as resources sourced from the companion installation and requiring conversion for GTA V Legacy.
+
+Compatibility is not yet complete: dbz_abilities.lua uses FiveM/Cfx Lua APIs. Script Hook V and Ultimate ASI Loader do not execute that API directly. Port the script to a supported Legacy runtime before installing or publishing. Do not install the current Lua file as a GTA V script.
+
+The assets/saves files are not mapped by the recipe and are not part of the mod installation.

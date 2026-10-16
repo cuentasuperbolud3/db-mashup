@@ -2,13 +2,15 @@
   "recipe": {
     "name": "Dragon Ball in Los Santos",
     "version": "1.2.0",
-    "description": "Configuración para un mashup de combate Dragon Ball en GTA V Enhanced: vuelo, carga de Ki, Super Saiyan, Kamehameha, ráfagas de Ki, Instant Transmission y combate. Dragon Ball: Sparking! Zero se usa como fuente local de recursos en solo lectura.",
+    "description": "Configuración para un mashup de combate Dragon Ball en GTA V Legacy: vuelo, carga de Ki, Super Saiyan, Kamehameha, ráfagas de Ki, Instant Transmission y combate. Dragon Ball: Sparking! Zero se usa como fuente local obligatoria de recursos en solo lectura.",
     "host": {
-      "game": "gta-v-enhanced",
+      "game": "gta-v",
+      "version": "1.0.3889.0",
       "platform": "pc"
     },
     "companion": {
       "game": "custom-dragon-ball-sparking-zero",
+      "required": true,
       "access": "read_only",
       "root": "{game:custom-dragon-ball-sparking-zero}"
     },
@@ -23,35 +25,35 @@
         "models": {
           "source": "companion_game",
           "use": "character_models",
-          "conversion": "required_for_gta_v_enhanced"
+          "conversion": "required_for_gta_v_legacy"
         },
         "animations": {
           "source": "companion_game",
           "use": "combat_and_ability_animations",
-          "conversion": "required_for_gta_v_enhanced"
+          "conversion": "required_for_gta_v_legacy"
         },
         "sounds": {
           "source": "companion_game",
           "use": "ki_charge_transformation_and_ability_audio",
-          "conversion": "required_for_gta_v_enhanced"
+          "conversion": "required_for_gta_v_legacy"
         },
         "vfx": {
           "source": "companion_game",
           "use": "ki_aura_blasts_and_ability_effects",
-          "conversion": "required_for_gta_v_enhanced"
+          "conversion": "required_for_gta_v_legacy"
         }
       }
     },
     "runtime": {
       "status": "requires_adapter",
-      "script_api": "FiveM/Cfx Lua natives",
-      "note": "El script Lua actual usa APIs de FiveM; Script Hook V y Ultimate ASI Loader no lo ejecutan directamente. Se necesita un adaptador compatible antes de poder cargar estos recursos en GTA V Enhanced."
+      "script_api": "FiveM/Cfx Lua natives (not Script Hook V)",
+      "note": "The installed GTA V Legacy version is 1.0.3889.0. The current Lua script uses FiveM/Cfx APIs; Script Hook V and Ultimate ASI Loader do not run it directly. Port the script to a compatible Legacy runtime before installing or publishing it."
     },
     "mappings": {
       "flight": {
         "free_flight": {
           "source": "custom-dragon-ball-sparking-zero",
-          "target": "gta-v-enhanced",
+          "target": "gta-v",
           "input_binding": "KEY_X",
           "ascend": "SPACE",
           "descend": "LCTRL",
@@ -62,7 +64,7 @@
       "ki": {
         "charge": {
           "source": "custom-dragon-ball-sparking-zero",
-          "target": "gta-v-enhanced",
+          "target": "gta-v",
           "input_binding": "KEY_R",
           "max": 100,
           "charge_per_second": 28,
@@ -72,14 +74,14 @@
       "abilities": {
         "kamehameha": {
           "source": "custom-dragon-ball-sparking-zero",
-          "target": "gta-v-enhanced",
+          "target": "gta-v",
           "input_binding": "KEY_E",
           "cooldown": 8,
           "ki_cost": 40
         },
         "instant_transmission": {
           "source": "custom-dragon-ball-sparking-zero",
-          "target": "gta-v-enhanced",
+          "target": "gta-v",
           "input_binding": "KEY_Q",
           "cooldown": 6,
           "ki_cost": 18,
@@ -87,7 +89,7 @@
         },
         "ki_blast": {
           "source": "custom-dragon-ball-sparking-zero",
-          "target": "gta-v-enhanced",
+          "target": "gta-v",
           "input_binding": "MOUSE_RIGHT",
           "cooldown": 1.2,
           "ki_cost_per_shot": 6,
@@ -97,7 +99,7 @@
       "transformations": {
         "super_saiyan": {
           "source": "custom-dragon-ball-sparking-zero",
-          "target": "gta-v-enhanced",
+          "target": "gta-v",
           "input_binding": "KEY_F",
           "ki_cost": 35,
           "drain_per_second": 4,
@@ -109,7 +111,7 @@
       "combat": {
         "spawn_hostiles": {
           "source": "custom-dragon-ball-sparking-zero",
-          "target": "gta-v-enhanced",
+          "target": "gta-v",
           "input_binding": "KEY_G",
           "cooldown": 10,
           "count": 3,
@@ -118,7 +120,7 @@
       }
     },
     "compatibility": {
-      "host": "gta-v-enhanced",
+      "host": "gta-v",
       "companion": "custom-dragon-ball-sparking-zero",
       "companion_access": "read_only"
     }

@@ -1,16 +1,5 @@
-Coloca aqui el archivo de partida al 100% con el nombre exacto:
+Esta carpeta no forma parte de la instalacion del mashup.
 
-  SGTA50000
+La receta actual no incluye, copia ni carga partidas guardadas de GTA V. No se debe reemplazar ningun archivo del perfil de Rockstar.
 
-Ruta de destino (GTA V Enhanced):
-  %USERPROFILE%\Documents\Rockstar Games\GTA V Enhanced\Profiles\<PERFIL>\SGTA50000
-
-Ruta de destino (GTA V Legacy):
-  %USERPROFILE%\Documents\Rockstar Games\GTA V\Profiles\<PERFIL>\SGTA50000
-
-<PERFIL> es la carpeta hexadecimal de 8 caracteres del usuario de Rockstar.
-
-Esta save debe ser una partida de historia al 100% para saltar el prologo/tutorial.
-No inicies una partida nueva: carga el slot 0 tras el launch de Melty.
-
-Melty.json ya declara skip_tutorial, skip_intro y la copia automatica de este archivo.
+El host configurado es GTA V Legacy (gta-v). Esta carpeta se conserva solo como nota de desarrollo; Melty no instala su contenido.
